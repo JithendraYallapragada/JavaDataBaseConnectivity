@@ -99,6 +99,8 @@ public class JavaDBLearn {
 			System.out.println("id is : " +rs.getInt(1)+" name is : " + rs.getString("name")+ " marks are : "+rs.getString(3));//you can write either column name or number
 			//output :: id is : 0 name is : Demo marks are : 0
 			}
+			con.close();//close the connection...
 	}
+	
 
 }
