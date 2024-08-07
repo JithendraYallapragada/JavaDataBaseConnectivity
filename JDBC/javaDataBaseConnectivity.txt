@@ -1,0 +1,10 @@
+Java DataBaseConnetivity
+
+1 --> Import the necessary packages(import java.sql.*;)
+2 --> Load the Driver(this happened from **mysql connector)
+      Register the Driver   -->> class.forNmae(com.mysql.jdbc driver)
+3 --> Establish the connection
+4 --> Statements
+5 --> Execute the query
+6 --> Get the result
+7 --> Close the connection.
