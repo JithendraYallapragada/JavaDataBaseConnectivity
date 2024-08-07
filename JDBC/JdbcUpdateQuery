@@ -1,0 +1,46 @@
+package JDBC;
+
+
+// import java.sql.*;//Imports the sql classes
+// mysql> select * from studentData;
+// +------+-----------+-------+
+// | id   | name      | marks |
+// +------+-----------+-------+
+// |    0 | Demo      |     0 |
+// |    1 | jithendra |    28 |
+// |    3 | Nithu     |   100 |
+// |    4 | None      |   100 |
+// +------+-----------+-------+
+// 4 rows in set (0.00 sec)
+
+
+
+public class JdbcUpdateQuery {
+	
+
+	public static void main(String[] args) throws Exception{
+		
+		String url="jdbc:mysql://localhost:3306/JDBC";
+		String userName="admin";
+		String password ="2093";	//Declare the needed variables
+		String query ="insert into studentData values(?,?,?)";//Query
+		int rowsEffected;
+		//data from user.
+		int id=4;
+		String name ="None";
+		int  marks =100;
+		
+		//this is not needed indeed(registering the driver)
+		Class.forName("com.mysql.cj.jdbc.Driver"); //Registers the Driver
+		
+		Connection con=DriverManager.getConnection(url,userName,password);
+		PreparedStatement pst= con.prepareStatement(query);//used not to fall at SqlInjections
+		pst.setInt(1, id);
+		pst.setString(2, name);//insert the data into unknowns
+		pst.setInt(3, marks);
+		
+		rowsEffected=pst.executeUpdate(); //executes the query and updates the result
+		System.out.println(rowsEffected +" row/s are Effected so the data is inserted");
+	}
+
+}
